@@ -1,0 +1,37 @@
+[project]
+name = "mmwave-engine"
+dynamic = ["version"]
+description = "Home-Assistant-free multi-radar fusion core"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "vodja" }]
+keywords = ["mmwave", "radar", "tracking", "home-assistant"]
+classifiers = [
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Intended Audience :: Developers",
+  "Topic :: Scientific/Engineering",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/zomco/mmwave-engine"
+Repository = "https://github.com/zomco/mmwave-engine"
+Issues = "https://github.com/zomco/mmwave-engine/issues"
+Changelog = "https://github.com/zomco/mmwave-engine/releases"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic]
+version = { attr = "mmwave_engine.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["mmwave_engine*"]
