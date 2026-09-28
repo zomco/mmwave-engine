@@ -3,6 +3,11 @@
 [English](./README.md)
 
 不依赖 Home Assistant 的多雷达融合核心：户型轨迹、区域事件、轨迹评分、SQLite。
+这些事件是回查安防视频时权重最高的标签。不要导入 `tracecue-engine`。
+
+NVR 的区域入侵和越界侦测不是观测，不要送进 `FusionEngine.step()`。原始 NVR
+标签不是训练集；先在别处清洗，再用人工结论（`person`、`pet`、`false_positive`、
+`uncertain`）调整确定性阈值。见 [AGENTS_CN.md](AGENTS_CN.md)。
 
 [mmwave-fusion](https://github.com/zomco/mmwave-fusion) 是 HA 外壳。以后的桌面或
 Docker 外壳导入同一个包。

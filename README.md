@@ -3,7 +3,13 @@
 [中文](./README_CN.md)
 
 Python package that fuses 2-D mmWave observations into room-frame tracks, zone
-events and trajectory scores. It does not import Home Assistant.
+events and trajectory scores. Those events are the highest-weight tag used to
+review security video. It does not import Home Assistant or `tracecue-engine`.
+
+NVR labels such as region intrusion and line crossing are not observations.
+Do not pass them into `FusionEngine.step()`. Raw NVR labels are not a training
+set; clean them elsewhere, then tune deterministic thresholds against human
+verdicts (`person`, `pet`, `false_positive`, `uncertain`). See [AGENTS.md](AGENTS.md).
 
 [mmwave-fusion](https://github.com/zomco/mmwave-fusion) is the Home Assistant
 shell. A future desktop or Docker shell can import this same package.
