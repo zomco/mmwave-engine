@@ -3,7 +3,19 @@ name: CI
 on:
   push:
     branches: [main]
+    paths-ignore: &engine-ignore
+      - 'AGENTS.md'
+      - 'AGENTS_CN.md'
+      - 'README.md'
+      - 'README_CN.md'
+      - 'LICENSE'
   pull_request:
+    branches: [main]
+    paths-ignore: *engine-ignore
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
